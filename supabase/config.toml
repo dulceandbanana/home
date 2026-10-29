@@ -1,0 +1,18 @@
+# Dulce & Banana Edge Functions. Public guest functions perform explicit Origin
+# validation and server-side input/Turnstile checks; they do not use a user JWT.
+[functions.place-order]
+verify_jwt = false
+
+[functions.check-order]
+verify_jwt = false
+
+# Admin-only endpoint requires an authenticated user's JWT and verifies admin_users.
+[functions.manage-payment-link]
+verify_jwt = true
+
+# Public quote endpoint has Turnstile, Origin check and request validation.
+[functions.lalamove-quote]
+verify_jwt = false
+
+[functions.report-transfer]
+verify_jwt = false
