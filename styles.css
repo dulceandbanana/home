@@ -560,3 +560,24 @@ body.dark .delivery-quote-section{color:#f7e9cd;background:linear-gradient(135de
 @media (prefers-reduced-motion:reduce){.delivery-map-actions button{transition:none!important}}
 
 .delivery-quote-section[hidden], .delivery-map[hidden], .db-paymongo-feature[hidden], #dbReportPaymentFB[hidden]{display:none!important;}
+
+/* V6.9 — refined persistent basket: retain depth, remove wandering light sweep.
+   This is deliberately specific to the basket; other gold buttons keep their hover polish. */
+.basket-button::before,
+.basket-button:hover::before,
+.basket-button:focus-visible::before {
+  content: none !important;
+  display: none !important;
+}
+.basket-button {
+  box-shadow: 0 5px 14px rgba(24, 15, 7, .24),
+              0 0 0 1px rgba(255, 225, 148, .22) inset;
+}
+@media (hover: hover) and (pointer: fine) {
+  .basket-button:hover:not(:disabled) {
+    box-shadow: 0 8px 19px rgba(24, 15, 7, .28),
+                0 0 0 1px rgba(255, 235, 186, .36) inset;
+  }
+}
+
+
